@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foodies - Order History</title>
+  <script src="https://kit.fontawesome.com/3cdc22b562.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    /* === GLOBAL STYLES === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      color: #333;
+    }
+
+    /* === HEADER/NAV (Matches your original) === */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 6rem;
+      display: flex;
+      background-color: rgb(253, 242, 233);
+      z-index: 1000;
+    }
+
+    .logo_div img {
+      width: 7rem;
+    }
+
+    /* === ORDERS CONTAINER === */
+    .orders-container {
+      margin-top: 8rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .orders-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .btn-delete-all {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* === ORDER CARDS === */
+    .orders-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .order-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .order-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .order-id {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+
+    .order-date {
+      color: #7f8c8d;
+    }
+
+    .btn-delete {
+      background: none;
+      border: none;
+      color: #e74c3c;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .order-details {
+      margin-top: 1rem;
+    }
+
+    .order-items {
+      margin: 1rem 0;
+    }
+
+    .order-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .order-totals {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #eee;
+    }
+
+    .order-status {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      background: rgb(2, 254, 2);
+      color: #000;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-top: 1rem;
+      font-family: sans-serif;
+      font-weight: bold;
+    }
+
+    .empty-orders {
+      text-align: center;
+      padding: 2rem;
+      color: #7f8c8d;
+      font-size: 2rem;
+    }
+
+    .special-instructions {
+      margin-top: 1rem;
+      padding: 0.8rem;
+      background: #f8f9fa;
+      border-radius: 4px;
+      border-left: 3px solid rgb(230, 126, 34);
+    }
+
+    .special-instructions p:first-child {
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+
+    /* === CONTACT/FOOTER (Matches original) === */
+    /* #contact {
+      background: rgb(31, 41, 55);
+      color: white;
+      padding: 2rem;
+    }
+
+    .footer {
+      background: rgb(31, 41, 55);
+      text-align: center;
+      padding: 1rem;
+      color: white;
+    } */
+  </style>
+</head>
+
+<body>
+  <!-- HEADER/NAV (Identical to your original) -->
+  <header>
+    <!-- Nav Logo -->
+    <a class="logo_div_container" href="#">
+      <div class="logo_div"><img src="/images/logo3.png" alt="logo3"></div>
+    </a>
+
+    <!-- Mobile nav -->
+    <div class="btn_mobile_nav">
+      <div class="btn_mobile_nav_icons">
+        <i class="fa-solid fa-bars" id="open"></i>
+        <i class="fa-solid fa-xmark hidden" id="close"></i>
+      </div>
+      <div class="slider slide">
+        <ul>
+          <li class="list_item"><a href="/index.html">Home</a></li>
+          <li class="list_item"><a href="/menu/nigeria.html">Nigeria</a></li>
+          <li class="list_item"><a href="/menu/portugal.html">Portuguese</a></li>
+          <li class="list_item"><a href="/menu/italy.html">Italian</a></li>
+          <li class="list_item"><a href="/menu/china.html">Chinese</a></li>
+          <li class="list_item"><a href="/menu/france.html">Frence</a></li>
+          <li class="list_item"><a href="/order/order.html">Order</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- desktop nav -->
+    <nav class="desktop_nav hidden">
+      <ul class="desktop_nav_list">
+        <li class="list_item"><a href="/index.html">Home</a></li>
+        <li class="list_item"><a href="/menu/nigeria.html">Nigeria</a></li>
+        <li class="list_item"><a href="/menu/portugal.html">Portuguese</a></li>
+        <li class="list_item"><a href="/menu/italy.html">Italian</a></li>
+        <li class="list_item"><a href="/menu/china.html">Chinese</a></li>
+        <li class="list_item"><a href="/menu/france.html">Frence</a></li>
+        <li class="list_item"><a href="/order/order.html">Order</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN ORDERS CONTENT -->
+  <main class="orders-container">
+    <div class="orders-header">
+      <h1>My Orders</h1>
+      <button id="deleteAllBtn" class="btn-delete-all">Delete All Orders</button>
+    </div>
+
+    <div id="ordersGrid" class="orders-grid">
+      <!-- Orders will be loaded here dynamically -->
+      <div class="empty-orders">No placed orders yet</div>
+    </div>
+  </main>
+  <script src="/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const ordersGrid = document.getElementById('ordersGrid');
+      const deleteAllBtn = document.getElementById('deleteAllBtn');
+
+      // Load and display orders
+      function loadOrders() {
+        const orders = JSON.parse(localStorage.getItem('foodiesOrders')) || [];
+
+        if (orders.length === 0) {
+          ordersGrid.innerHTML = '<div class="empty-orders">No placed orders yet</div>';
+          deleteAllBtn.style.display = 'none';
+          return;
+        }
+
+        // Sort by most recent first
+        orders.sort((a, b) => b.id - a.id);
+
+        ordersGrid.innerHTML = orders.map(order => `
+          <div class="order-card" data-id="${order.id}">
+            <div class="order-header">
+              <div>
+                <h3>Order #${order.id.toString().slice(-6)}</h3>
+                <p class="order-date">${order.date}</p>
+              </div>
+              <button class="btn-delete" data-id="${order.id}">
+                Delete Order
+              </button>
+            </div>
+            
+            <div class="order-details">
+              <p><strong>Customer:</strong> ${order.customer.name}</p>
+              <p><strong>Delivery to:</strong> ${order.customer.address}</p>
+
+               <!-- ADDED: Special Instructions Section -->
+              ${order.customer.instructions ? `
+                <div class="special-instructions">
+                  <p>Special Instructions:</p>
+                  <p>"${order.customer.instructions}"</p>
+                </div>
+              ` : ''}
+              
+              <div class="order-items">
+                <h4>Items:</h4>
+                ${order.items.map(item => `
+                  <div class="order-item">
+                    <span>${item.quantity}x ${item.name}</span>
+                    <span>$${(item.price * item.quantity).toFixed(2)}</span>
+                  </div>
+                `).join('')}
+              </div>
+              
+              <div class="order-totals">
+                <div class="order-item">
+                  <span>Subtotal:</span>
+                  <span>$${order.subtotal.toFixed(2)}</span>
+                </div>
+                <div class="order-item">
+                  <span>Delivery Fee:</span>
+                  <span>$5.00</span>
+                </div>
+                <div class="order-item" style="font-weight: bold;">
+                  <span>Total:</span>
+                  <span>$${order.total.toFixed(2)}</span>
+                </div>
+              </div>
+              
+              <span class="order-status">${order.status}</span>
+            </div>
+          </div>
+        `).join('');
+
+        // Add event listeners to delete buttons
+        document.querySelectorAll('.btn-delete').forEach(btn => {
+          btn.addEventListener('click', deleteOrder);
+        });
+      }
+
+      // Delete single order
+      function deleteOrder(e) {
+        const orderId = e.currentTarget.dataset.id;
+        let orders = JSON.parse(localStorage.getItem('foodiesOrders')) || [];
+
+        orders = orders.filter(order => order.id != orderId);
+        localStorage.setItem('foodiesOrders', JSON.stringify(orders));
+
+        // Remove from UI
+        document.querySelector(`.order-card[data-id="${orderId}"]`).remove();
+
+        // Show empty message if no orders left
+        if (orders.length === 0) {
+          ordersGrid.innerHTML = '<div class="empty-orders">No placed orders yet</div>';
+          deleteAllBtn.style.display = 'none';
+        }
+      }
+
+      // Delete all orders
+      deleteAllBtn.addEventListener('click', () => {
+        if (confirm('Are you sure you want to delete ALL orders?')) {
+          localStorage.removeItem('foodiesOrders');
+          ordersGrid.innerHTML = '<div class="empty-orders">No placed orders yet</div>';
+          deleteAllBtn.style.display = 'none';
+        }
+      });
+
+      // Initial load
+      loadOrders();
+    });
+  </script>
+</body>
+
+</html>

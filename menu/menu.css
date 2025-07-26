@@ -1,0 +1,138 @@
+body[data-country] {
+  font-family: "Poppins", sans-serif;
+  background-color: rgb(255, 255, 255);
+  color: #333;
+}
+
+.menu_container {
+  margin-top: 8rem;
+}
+
+.menu_heading {
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.menu_subheading {
+  color: rgb(230, 126, 34);
+  margin-bottom: 1rem;
+}
+
+.food_img_container {
+  width: 95%;
+  height: 25rem;
+  margin: auto;
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.food_img_container img {
+  width: 100%;
+}
+
+/* Remove or minimize padding to avoid layout shrink */
+.menu-section {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
+
+.menu-column {
+  flex: 1 1 300px;
+}
+
+.menu-item {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  /* i'll increase this guy size for desktop mode */
+}
+
+.menu-item h3 {
+  margin: 0;
+}
+
+.menu-item p {
+  margin: 0.3rem 0 0 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.price {
+  font-weight: bold;
+  color: rgb(230, 126, 34);
+  font-size: 1.1rem;
+}
+
+.btn_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.order_btn {
+  padding: 1.4rem 3rem;
+  border-radius: 50rem;
+  border: 2px solid transparent;
+  background-color: rgb(230, 126, 34);
+  font-size: 1.6rem;
+  outline: none;
+  margin: 0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.order_btn a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  font-family: bold;
+  transition: all 0.3s ease;
+  font-family: sans-serif;
+}
+
+.order_btn:hover {
+  background-color: transparent;
+  border: 2px solid rgb(230, 126, 34);
+  color: #000;
+}
+
+.order_btn:hover a {
+  color: #000;
+}
+
+@media screen and (min-width: 768px) {
+  /* body[data-country] {
+  } */
+
+  /* .menu-item {
+  } */
+
+  .food_img_container {
+    height: 45rem;
+  }
+
+  .food_name {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .food_description {
+    font-size: 1.2rem !important;
+  }
+
+  .price {
+    font-size: 1.4rem;
+  }
+}

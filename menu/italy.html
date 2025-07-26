@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Italian Menu | Foodies</title>
+  <script src="https://kit.fontawesome.com/3cdc22b562.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="menu.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+
+<body data-country="italy">
+  <header>
+    <!-- Nav Logo -->
+    <a class="logo_div_container" href="#">
+      <div class="logo_div"><img src="/images/logo3.png" alt="logo3"></div>
+    </a>
+
+    <!-- Mobile nav -->
+    <div class="btn_mobile_nav">
+      <div class="btn_mobile_nav_icons">
+        <i class="fa-solid fa-bars" id="open"></i>
+        <i class="fa-solid fa-xmark hidden" id="close"></i>
+      </div>
+      <div class="slider slide">
+        <ul>
+          <li class="list_item"><a href="/index.html">Home</a></li>
+          <li class="list_item"><a href="nigeria.html">Nigeria</a></li>
+          <li class="list_item"><a href="portugal.html">Portuguese</a></li>
+          <li class="list_item"><a href="#">Italian</a></li>
+          <li class="list_item"><a href="china.html">Chinese</a></li>
+          <li class="list_item"><a href="france.html">Frence</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- desktop nav -->
+    <nav class="desktop_nav hidden">
+      <ul class="desktop_nav_list">
+        <li class="list_item"><a href="/index.html">Home</a></li>
+        <li class="list_item"><a href="nigeria.html">Nigeria</a></li>
+        <li class="list_item"><a href="portugal.html">Portuguese</a></li>
+        <li class="list_item"><a href="#">Italian</a></li>
+        <li class="list_item"><a href="china.html">Chinese</a></li>
+        <li class="list_item"><a href="france.html">Frence</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="menu_container">
+    <h1 id="menu-title" class="menu_heading"></h1>
+
+    <div class="food_img_container">
+      <img
+        src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+        alt="">
+    </div>
+
+    <div class="menu-section" id="menu-container"></div>
+
+    <div class="btn_container">
+      <button class="order_btn"><a href="/order/order.html">Place an order</a></button>
+    </div>
+
+    <section id="contact" class="contact">
+      <!-- Form, email, phone, map -->
+      <div class="contact_column desktop_version">
+        <img src="/images/logo3.png" alt="logo">
+        <p class="contact_text">Bringing authentic world cuisine to your table since 2010.</p>
+      </div>
+      <div class="contact_column">
+        <h3 class="contact_heading">Quick Links</h3>
+        <ul class="where_to">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+        </ul>
+      </div>
+      <div class="contact_column">
+        <h3 class="contact_info">Contact Us</h3>
+        <div class="contact_info_div">
+          <div class="contact_info_div_icon">
+            <i class="fa-solid fa-location-dot"></i>
+            <p class="icon_text">123 Food Street, Culinary City</p>
+          </div>
+          <div class="contact_info_div_icon">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+2349031421993">09031421993</a>
+          </div>
+          <div class="contact_info_div_icon">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:mprosper147@gmail.com">Mprosper147@gmail.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact_column">
+        <h3 class="time">Opening Hours</h3>
+        <ul class="time_ul">
+          <li>Monday - Friday: 11am - 10pm</li>
+          <li>Saturday: 10am - 11pm</li>
+          <li>Sunday: 10am - 9pm</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+      <!-- Copyright, social links -->
+      <p class="footer-text">© 2023 Foodies. All rights reserved.</p>
+
+      <div class="footer-icons">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    </footer>
+  </div>
+  <script src="menu.js"></script>
+  <script src="/script.js"></script>
+</body>
+
+</html>
